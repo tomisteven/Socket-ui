@@ -1,6 +1,11 @@
 import express from "express";
 import { Server as WebSocketServer } from "socket.io";
 import http from "http";
+//dotenv
+import dotenv from "dotenv";
+dotenv.config();
+
+
 
 
 import {v4 as uuidv4} from "uuid";
@@ -66,9 +71,9 @@ io.on("connection", (socket) => {
 app.use(express.static("./src/public"));
 
 
-hhtpServer.listen(3000, () => {
+hhtpServer.listen(process.env.PORT, () => {
     console.log("**************************");
-    console.log("Server is running on port 3000");
+    console.log("Server is running on port" + process.env.PORT);
     console.log("**************************");
 })
 
